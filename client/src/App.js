@@ -22,7 +22,7 @@ function App() {
        <Routes>
          <Route path='/adminlogin' element={<Login/>} />
          <Route path='/' element={<Mainpage/>}/>
-         <Route path='/dashboard' element={<Dashboard/>}>
+          <Route path='/dashboard' element={<Dashboard/>}>
             <Route path='' element={<Home/>}/>
             <Route path='/dashboard/employee' element={<Employee/>}/>
             <Route path='/dashboard/category' element={<Category/>}/>
@@ -32,8 +32,8 @@ function App() {
             <Route path='/dashboard/edit_employee/:id' element={<EditEmployee/>}/>
             <Route path='/dashboard/edit_admin/:id' element={<EditAdmin/>}/>
             <Route path='/dashboard/add_vacancies' element={<Addvacancy/>}/>
-            <Route path='/dashboard/vacancy' element={<Vacancy/>}/>S
-         </Route>
+            <Route path='/dashboard/vacancy' element={<Vacancy/>}/>
+          </Route>
        </Routes>
      </BrowserRouter>
    </>

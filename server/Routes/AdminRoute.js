@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const multer = require('multer');
 const path = require('path');
-
+require('dotenv').config();
 
 const router = express.Router();
 
@@ -16,7 +16,7 @@ router.post('/adminlogin', (req, res) => {
             const email = result[0].email;
             const token = jwt.sign(
                 { role: "admin", email: email }, 
-                "jwt_secret_key", 
+                "JWT_KEY", 
                 { expiresIn: '1d' }
             );
             res.cookie('token', token);
@@ -241,6 +241,25 @@ router.get('/vacancy', (req, res) => {
       if (err) return res.json({ Status: false, Error: "Query Error" });
       return res.json({ Status: true, Data: result });
     });
+});
+
+
+// Set a cookie
+router.get('/set-cookie', (req, res) => {
+    res.cookie('username', 'john_doe', { maxAge: 900000, httpOnly: true });
+    res.send('Cookie has been set');
+});
+
+// Get cookies
+router.get('/get-cookie', (req, res) => {
+    let username = req.cookies['username'];
+    res.send(`Username is ${username}`);
+});
+
+// Clear a cookie
+router.get('/clear-cookie', (req, res) => {
+    res.clearCookie('username');
+    res.send('Cookie has been cleared');
 });
 
 
