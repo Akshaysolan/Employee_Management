@@ -2,9 +2,9 @@ import React from 'react';
 import ImageSlider from './ImageSlider';
 
 const images = [
-  'https://th.bing.com/th/id/OIG1.CAgyGaCu1gIJLDkjl0M_?w=270&h=270&c=6&r=0&o=5&dpr=1.5&pid=ImgGn',
-  'https://th.bing.com/th/id/OIG4.5bIZF.r1b.kgQ5Beu9fG?w=270&h=270&c=6&r=0&o=5&dpr=1.5&pid=ImgGn',
-  'https://th.bing.com/th/id/OIG3.a7XmYl0qZtD.sq0whIjR?w=270&h=270&c=6&r=0&o=5&dpr=1.5&pid=ImgGn',
+  'http://ts1.mm.bing.net/th?id=OIP.AL-tY-Ydu2oesBkkSjIR-QHaFt&pid=15.1',
+  'http://ts2.mm.bing.net/th?id=OIP.adPqL96PupxMqOozcoYEzQHaE-&pid=15.1',
+  'https://th.bing.com/th/id/OIP.mALkNXc0i1RVDO8cuR774AHaE8?w=278&h=186&c=7&r=0&o=5&dpr=1.5&pid=1.7',
 ];
 
 const Mainpage = () => (

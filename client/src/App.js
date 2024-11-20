@@ -14,6 +14,7 @@ import EditEmployee from './components/EditEmployee';
 import EditAdmin from './components/EditAdmin';
 import Addvacancy from './components/Addvacancy';
 import Vacancy from './components/Vacancy';
+import LoginEmployee from './components/LoginEmployee';
 
 function App() {
   return ( 
@@ -21,8 +22,9 @@ function App() {
      <BrowserRouter>
        <Routes>
          <Route path='/adminlogin' element={<Login/>} />
+         <Route path='/employeelogin' element={<LoginEmployee/>}/>
          <Route path='/' element={<Mainpage/>}/>
-          <Route path='/dashboard' element={<Dashboard/>}>
+         <Route path='/dashboard' element={<Dashboard/>}>
             <Route path='' element={<Home/>}/>
             <Route path='/dashboard/employee' element={<Employee/>}/>
             <Route path='/dashboard/category' element={<Category/>}/>
@@ -32,8 +34,8 @@ function App() {
             <Route path='/dashboard/edit_employee/:id' element={<EditEmployee/>}/>
             <Route path='/dashboard/edit_admin/:id' element={<EditAdmin/>}/>
             <Route path='/dashboard/add_vacancies' element={<Addvacancy/>}/>
-            <Route path='/dashboard/vacancy' element={<Vacancy/>}/>
-          </Route>
+            <Route path='/dashboard/vacancy' element={<Vacancy/>}/>S
+         </Route>
        </Routes>
      </BrowserRouter>
    </>

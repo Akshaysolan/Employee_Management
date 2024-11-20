@@ -18,7 +18,6 @@ function AddVacancy() {
         .then(result => {
            if(result.data.Status){
              navigate('/dashboard');
-            // console.log(result.data.Status)
            }
            else{
               alert(result.data.Error);

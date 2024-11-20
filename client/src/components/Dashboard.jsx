@@ -47,7 +47,6 @@ function Dashboard() {
                     <NavLink
                       to="/dashboard"
                       className="nav-link text-white px-0 align-middle"
-                      activeClassName="active"
                     >
                       <i className="fs-4 bi-speedometer2 ms-2"></i>
                       <span className="ms-2 d-none d-sm-inline">Dashboard</span>
@@ -57,11 +56,10 @@ function Dashboard() {
                     <NavLink
                       to="/dashboard/employee"
                       className="nav-link px-0 align-middle text-white"
-                      activeClassName="active"
                     >
                       <i className="fs-4 bi-people ms-2"></i>
                       <span className="ms-2 d-none d-sm-inline">
-                        Manage Employees
+                        Employees
                       </span>
                     </NavLink>
                   </li>
@@ -69,7 +67,6 @@ function Dashboard() {
                     <NavLink
                       to="/dashboard/category"
                       className="nav-link px-0 align-middle text-white"
-                      activeClassName="active"
                     >
                       <i className="fs-4 bi-person ms-2"></i>
                       <span className="ms-2 d-none d-sm-inline">Category</span>
@@ -79,7 +76,6 @@ function Dashboard() {
                     <NavLink
                       to="/dashboard/vacancy"
                       className="nav-link px-0 align-middle text-white"
-                      activeClassName="active"
                     >
                       <i className="fs-4 bi-briefcase ms-2"></i>
                       <span className="ms-2 d-none d-sm-inline">Vacancies</span>
@@ -90,7 +86,6 @@ function Dashboard() {
                     <NavLink
                       to="/dashboard/profile"
                       className="nav-link px-0 align-middle text-white"
-                      activeClassName="active"
                     >
                       <i className="fs-4 bi-person ms-2"></i>
                       <span className="ms-2 d-none d-sm-inline">Profile</span>

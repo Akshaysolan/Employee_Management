@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const multer = require('multer');
 const path = require('path');
 require('dotenv').config();
+const jwtSecretKey = process.env.JWT_SECRET_KEY;
 
 const router = express.Router();
 
@@ -16,7 +17,7 @@ router.post('/adminlogin', (req, res) => {
             const email = result[0].email;
             const token = jwt.sign(
                 { role: "admin", email: email }, 
-                "JWT_KEY", 
+                jwtSecretKey,
                 { expiresIn: '1d' }
             );
             res.cookie('token', token);
@@ -52,8 +53,6 @@ router.post('/add_category', (req, res) => {
 
 
 
- //image start code
-
  const storage = multer.diskStorage({
     destination : (req, file, cb) =>{
         cb(null, 'Public/Images')
@@ -66,9 +65,7 @@ router.post('/add_category', (req, res) => {
  const upload = multer({
     storage : storage
  })
- //image end.................
-
-
+ 
 router.post('/add_employee', upload.single('image'), (req, res) =>{
     const sql = `INSERT INTO employee(name, email, password, address, salary, image, category_id, hiredate ) VALUES(?)`;
     bcrypt.hash(req.body.password, 10, (err, hash) =>{
@@ -91,6 +88,43 @@ router.post('/add_employee', upload.single('image'), (req, res) =>{
         }) 
     });
 });
+
+
+
+router.post('/login', (req, res) => {
+    const { email, password } = req.body;
+    const sql = `SELECT * FROM employee WHERE email = ?`;
+
+    con.query(sql, [email], (err, result) => {
+        if (err) {
+            console.log("Database Query Error:", err);
+            return res.json({ Status: false, Error: "Database Query Error" });
+        }
+        if (result.length === 0) {
+            console.log("User Not Found");
+            return res.json({ Status: false, Error: "User Not Found" });
+        }
+
+        const user = result[0];
+        bcrypt.compare(password, user.password, (err, isMatch) => {
+            if (err) {
+                console.log("Password Comparison Error:", err);
+                return res.json({ Status: false, Error: "Password Comparison Error" });
+            }
+            if (!isMatch) {
+                console.log("Incorrect Password");
+                return res.json({ Status: false, Error: "Incorrect Password" });
+            }
+
+            const token = jwt.sign({ id: user.id, email: user.email }, jwtSecretKey, { expiresIn: '1h' });
+            console.log("Login Successful, Token:", token);
+            return res.json({ Status: true, Token: token });
+        });
+    });
+});
+
+
+
 
 router.get('/employee', (req, res) => {
     const sql = "SELECT * FROM employee";
@@ -210,7 +244,7 @@ router.delete('/delete_admin/:id',(req, res) =>{
 
 router.post('/add_vacancies', (req, res) => {
     const { category_id, vacancies } = req.body;
-    console.log(req.body); // Add this line to log the received data
+    console.log(req.body); 
 
     if (!category_id || !vacancies) {
       return res.status(400).json({ Status: false, Error: 'Missing required fields' });
@@ -241,25 +275,6 @@ router.get('/vacancy', (req, res) => {
       if (err) return res.json({ Status: false, Error: "Query Error" });
       return res.json({ Status: true, Data: result });
     });
-});
-
-
-// Set a cookie
-router.get('/set-cookie', (req, res) => {
-    res.cookie('username', 'john_doe', { maxAge: 900000, httpOnly: true });
-    res.send('Cookie has been set');
-});
-
-// Get cookies
-router.get('/get-cookie', (req, res) => {
-    let username = req.cookies['username'];
-    res.send(`Username is ${username}`);
-});
-
-// Clear a cookie
-router.get('/clear-cookie', (req, res) => {
-    res.clearCookie('username');
-    res.send('Cookie has been cleared');
 });
 
 

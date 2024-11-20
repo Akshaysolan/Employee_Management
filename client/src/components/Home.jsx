@@ -78,7 +78,6 @@ function Home() {
   return (
     <>
       <div className='p-3 d-flex justify-content-around mt-3' >
-        {/* Admin Template */}
         <div className='px-3 pt-2 pb-3 border shadow-sm w-25' style={{backgroundColor:'burlywood', height: 'calc(100% + 20px)', borderRadius:'10px'}}>
           <div className='text-center pb-1'>
             <h4><i className="bi bi-person-badge"></i> Admin</h4>
@@ -90,7 +89,6 @@ function Home() {
           </div>
         </div>
         
-        {/* Employee Template */}
         <div className='px-3 pt-2 pb-3 border shadow-sm w-25' style={{backgroundColor:'burlywood', height: 'calc(100% + 20px)', borderRadius:'10px'}}>
           <div className='text-center pb-1'>
             <h4><i className="bi bi-people"></i> Employee</h4>
@@ -101,8 +99,7 @@ function Home() {
             <h5>{employeeTotal}</h5>
           </div>
         </div>
-        
-        {/* Salary Template */}
+      
         <div className='px-3 pt-2 pb-3 border shadow-sm w-25' style={{backgroundColor:'burlywood', height: 'calc(100% + 20px)', borderRadius:'10px'}}>
           <div className='text-center pb-1'>
             <h4><i className="bi bi-currency-dollar"></i> Salary</h4>
@@ -116,7 +113,6 @@ function Home() {
       </div>
 
       <div className='p-3 d-flex justify-content-around mt-3'>
-        {/* Recruitment Template */}
         <div className='px-3 pt-2 pb-3 border shadow-sm w-25' style={{backgroundColor:'burlywood', height: 'calc(100% + 20px)', borderRadius:'10px'}}>
         <div className='text-center pb-1'>
           <h4><i className="bi bi-briefcase"></i> Recruitment</h4>
@@ -127,7 +123,6 @@ function Home() {
           <h5>{totalVacancies}</h5>
         </div>
       </div>
-        {/* Training Template */}
         <div className='px-3 pt-2 pb-3 border shadow-sm w-25' style={{backgroundColor:'burlywood', height: 'calc(100% + 20px)', borderRadius:'10px'}}>
           <div className='text-center pb-1'>
             <h4><i className="bi bi-book"></i> Training</h4>
@@ -135,11 +130,10 @@ function Home() {
           <hr />
           <div className='d-flex justify-content-between'>
             <h5>Total:</h5>
-            <h5>{/* Total Training */}</h5>
+            <h5></h5>
           </div>
         </div>
-        
-        {/* Performance Template */}
+
         <div className='px-3 pt-2 pb-3 border shadow-sm w-25' style={{backgroundColor:'burlywood', height: 'calc(100% + 20px)', borderRadius:'10px'}}>
           <div className='text-center pb-1'>
             <h4><i className="bi bi-graph-up"></i> Performance</h4>
@@ -147,7 +141,7 @@ function Home() {
           <hr />
           <div className='d-flex justify-content-between'>
             <h5>Total:</h5>
-            <h5>{/* Total Performance */}</h5>
+            <h5></h5>
           </div>
         </div>
       </div>

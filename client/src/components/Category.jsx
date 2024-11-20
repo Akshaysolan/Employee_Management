@@ -11,7 +11,6 @@ function Category() {
       .then(result => {
         console.log(result.data);
         if (result.data.Status) {
-          // Sort the categories by name in ascending order
           const sortedCategories = result.data.Data.sort((a, b) => a.name.localeCompare(b.name));
           setCategory(sortedCategories); 
         } else {

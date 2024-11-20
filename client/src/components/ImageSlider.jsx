@@ -46,6 +46,7 @@ const ImageSlider = ({ images }) => {
                 <div className="p-2 d-flex justify-content-between shadow">
                     <h4 className="text-center w-100">Employee Management System</h4>
                     <Link to='adminlogin' className='admin'>AdminLogin</Link>
+                    <Link to='employeelogin' className='admin'>EmployeeLogin</Link>
                 </div>
             </div>
 

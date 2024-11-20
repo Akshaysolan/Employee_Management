@@ -6,8 +6,7 @@ function Rating() {
       <div>
         <input type='number' 
                placeholder='rating'
-               name='rating'
-             
+               name='rating'   
         />
       </div>
     </>
